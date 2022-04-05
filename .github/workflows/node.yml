@@ -130,4 +130,4 @@ jobs:
         with:
           version: 6.11.0
           run_install: true
-      - run: pnpm e2e
+#      - run: pnpm e2e

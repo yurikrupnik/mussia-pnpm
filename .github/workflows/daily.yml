@@ -44,8 +44,8 @@ jobs:
       - run: npx nx-cloud start-ci-run
       - run: pnpm test -- --skip-nx-cache --verbose
       - run: pnpm build -- --skip-nx-cache --verbose
-      - run: pnpm e2e -- --skip-nx-cache --verbose
       - run: pnpm lint -- --skip-nx-cache --verbose
+#      - run: pnpm e2e -- --skip-nx-cache --verbose
       - name: Stop agents
         run: npx nx-cloud stop-all-agents
         if: ${{ always() }}
