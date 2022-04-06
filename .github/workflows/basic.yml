@@ -39,6 +39,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         run_install: true
 #    - run: pnpm i
-    - run: pnpm nx run-many --parallel --all --target=test
-    - run: pnpm nx run-many --parallel --all --target=build
-    - run: pnpm nx run-many --parallel --all --target=lint
+    - run: pnpx nx run-many --parallel --all --target=test
+    - run: pnpx nx run-many --parallel --all --target=build
+    - run: pnpx nx run-many --parallel --all --target=lint
