@@ -35,7 +35,7 @@ jobs:
 #      with:
 #        version: 6.32.4
 #        run_install: true
-    - run: pnpm i
+#    - run: pnpm i
     - run: pnpm nx run-many --parallel --all --target=test
     - run: pnpm nx run-many --parallel --all --target=build
     - run: pnpm nx run-many --parallel --all --target=lint
