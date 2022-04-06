@@ -26,10 +26,6 @@ jobs:
     - uses: pnpm/action-setup@v2.1.0
       with:
         version: 6.11.0
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
     - name: Cache pnpm modules
       uses: actions/cache@v2
       with:
@@ -37,8 +33,12 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-
-
-    - run: pnpm i
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        run_install: true
+#    - run: pnpm i
     - run: pnpm nx run-many --parallel --all --target=test
     - run: pnpm nx run-many --parallel --all --target=build
     - run: pnpm nx run-many --parallel --all --target=lint
